@@ -33,17 +33,21 @@ const HomePageTemplate = () => {
 
       const result = await sendQuestion(text);
 
-      setHistory((prevHistory) => [
-        ...prevHistory,
-        {
-          question: result.question,
-          answer: result.answer,
-          sql: result.sql_query,
-          columns: result.columns,
-          data: result.data,
-          fullWidth: false,
-        },
-      ]);
+      console.log(result);
+      if (result) {
+        setHistory((prevHistory) => [
+          ...prevHistory,
+          {
+            question: result.question,
+            answer: result.answer,
+            sql: result.sql_query,
+            columns: result.columns,
+            data: result.data,
+            fullWidth: false,
+          },
+        ]);
+      }
+
       // }
       setResponse(result);
     } catch (error) {
