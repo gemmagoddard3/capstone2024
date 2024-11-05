@@ -10,7 +10,8 @@ import os
 
 # Initialize the Flask app
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
+cors_origins = [os.getenv("FRONT_END_ORIGIN")]
+CORS(app, origins=cors_origins)
 
 # Load environment variables
 load_dotenv()
