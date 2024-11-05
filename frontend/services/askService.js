@@ -9,6 +9,11 @@ export async function sendQuestion(question) {
       `${process.env.NEXT_PUBLIC_SERVER_URL}/ask`,
       {
         question,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
     );
 
